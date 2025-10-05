@@ -1,7 +1,7 @@
 public class PartInstance
 {
-    public string InstanceName { get; set; }   // e.g., "R1", "C2"
-    public PartDefinition Definition { get; } // Points to the master definition
+	public string InstanceName { get; set; }   // e.g., "R1", "C2"
+	public PartDefinition Definition { get; } // Points to the master definition
 
 	// Example instance-specific properties
 	public double Value { get; set; }          // e.g., resistance in ohms, capacitance in farads
@@ -32,4 +32,3 @@ public class PartInstance
 		return $"{InstanceName}: {Definition.Name} ({Definition.Symbol}) [Value={Value}] | {conns}";
 	}
 }
-

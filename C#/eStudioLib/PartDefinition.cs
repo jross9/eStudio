@@ -1,23 +1,23 @@
 // Abstract base for all part definitions
 public abstract class PartDefinition
 {
-    public string Name { get; }
-    public string Symbol { get; }   // e.g., "R", "C", "L", "Q"
-	
+	public string Name { get; }
+	public string Symbol { get; }   // e.g., "R", "C", "L", "Q"
+
 	public List<PinDefinition> Pins { get; } = new List<PinDefinition>();
 
 	protected PartDefinition(string name, string symbol)
-    {
-        this.Name = name;
-        this.Symbol = symbol;
-    }
+	{
+		this.Name = name;
+		this.Symbol = symbol;
+	}
 }
 
 // Examples of master part types
 public class ResistorDefinition : PartDefinition
 {
 	public ResistorDefinition() : base("Resistor", "R") 
-    {
+	{
 		this.Pins.Add(new PinDefinition(1, "A"));
 		this.Pins.Add(new PinDefinition(2, "B"));
 	}
@@ -25,8 +25,8 @@ public class ResistorDefinition : PartDefinition
 
 public class CapacitorDefinition : PartDefinition
 {
-    public CapacitorDefinition() : base("Capacitor", "C") 
-    {
+	public CapacitorDefinition() : base("Capacitor", "C") 
+	{
 		this.Pins.Add(new PinDefinition(1, "A"));
 		this.Pins.Add(new PinDefinition(2, "B"));
 	}
@@ -34,8 +34,8 @@ public class CapacitorDefinition : PartDefinition
 
 public class InductorDefinition : PartDefinition
 {
-    public InductorDefinition() : base("Inductor", "L") 
-    {
+	public InductorDefinition() : base("Inductor", "L") 
+	{
 		this.Pins.Add(new PinDefinition(1, "A"));
 		this.Pins.Add(new PinDefinition(2, "B"));
 	}
@@ -61,6 +61,4 @@ public class TransistorDefinition : PartDefinition
 			}
 		}
 	}
-
 }
-

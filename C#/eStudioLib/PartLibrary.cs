@@ -1,15 +1,15 @@
 public class PartLibrary
 {
-    public List<PartDefinition> Parts { get; } = new List<PartDefinition>();
+	public List<PartDefinition> Parts { get; } = new List<PartDefinition>();
 	public Dictionary<string, PartDefinition> PartDict { get; } = new Dictionary<string, PartDefinition>();
 
-    public PartLibrary()
-    {
-        // Build master list
+	public PartLibrary()
+	{
+		// Build master list
 
-        PartDefinition part = null;
+		PartDefinition part = null;
 
-        part = new ResistorDefinition();
+		part = new ResistorDefinition();
 		this.Parts.Add(part);
 		this.PartDict.Add("Resistor", part);
 
@@ -34,4 +34,3 @@ public class PartLibrary
 		this.PartDict.Add("7400", part);
 	}
 }
-
