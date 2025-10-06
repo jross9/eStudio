@@ -1,9 +1,12 @@
-public class Circuit
+namespace eStudioLib
 {
-	public List<PartInstance> Instances { get; } = new List<PartInstance>();
-
-	public void AddPart(PartInstance instance)
+	public class Circuit
 	{
-		Instances.Add(instance);
+		public List<PartInstance> Instances { get; } = new List<PartInstance>();
+
+		public void AddPart(PartInstance instance)
+		{
+			Instances.Add(instance);
+		}
 	}
 }

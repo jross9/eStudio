@@ -1,13 +1,16 @@
-public class PinConnection
+namespace eStudioLib
 {
-	public PinDefinition Pin { get; }
-	public string Node { get; set; }
-
-	public PinConnection(PinDefinition pin, string node)
+	public class PinConnection
 	{
-		this.Pin = pin;
-		this.Node = node;
-	}
+		public PinDefinition Pin { get; }
+		public string Node { get; set; }
 
-	public override string ToString() => $"{Pin.Name}->{Node}";
+		public PinConnection(PinDefinition pin, string node)
+		{
+			this.Pin = pin;
+			this.Node = node;
+		}
+
+		public override string ToString() => $"{Pin.Name}->{Node}";
+	}
 }

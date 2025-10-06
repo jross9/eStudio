@@ -1,4 +1,8 @@
-﻿namespace eStudioCL
+﻿
+using eStudioLib;
+
+
+namespace eStudioCL
 {
 	internal class Program
 	{
@@ -27,6 +31,20 @@
 			u2.ConnectPin(14, "VCC");
 			u2.ConnectPin(7, "GND");
 			circuit.AddPart(u2);
+
+			Chip6809Definition chip6809Def = (Chip6809Definition)library.PartDict["6809"];
+			Console.WriteLine("----------------------------------------");
+			chip6809Def.PrintChip();
+			Console.WriteLine("----------------------------------------");
+			var u3 = new PartInstance("U3", chip6809Def);
+			circuit.AddPart(u3);
+
+			Chip6883Definition chip6883Def = (Chip6883Definition)library.PartDict["6883"];
+			Console.WriteLine("----------------------------------------");
+			chip6883Def.PrintChip();
+			Console.WriteLine("----------------------------------------");
+			var u4 = new PartInstance("U4", chip6883Def);
+			circuit.AddPart(u4);
 
 			// Display
 			foreach (var instance in circuit.Instances)
