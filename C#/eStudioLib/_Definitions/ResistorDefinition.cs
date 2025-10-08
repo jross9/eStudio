@@ -1,4 +1,4 @@
-﻿namespace eStudioLib
+﻿namespace eLib
 {
 	public class ResistorDefinition : PartDefinition
 	{

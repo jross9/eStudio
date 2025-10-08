@@ -1,5 +1,5 @@
 ﻿
-using eStudioLib;
+using eLib;
 
 
 namespace eStudioCL
@@ -10,7 +10,7 @@ namespace eStudioCL
 		{
 			var library = new PartLibrary();
 			
-			var circuit = new Circuit();
+			var circuit = new Circuit("TestCircuit");
 
 			var resistorDef = library.Parts.OfType<ResistorDefinition>().First();
 			var r1 = new PartInstance("R1", resistorDef) { Value = 1000 };
@@ -51,6 +51,8 @@ namespace eStudioCL
 			{
 				Console.WriteLine(instance);
 			}
+
+			circuit.WriteXmlFile(@"C:\Temp\TestCircuit.xml");
 		}
 	}
 }

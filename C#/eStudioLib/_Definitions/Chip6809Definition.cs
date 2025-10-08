@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eStudioLib
+namespace eLib
 {
 	public class Chip6809Definition : ChipDefinition
 	{

@@ -1,5 +1,5 @@
 ﻿
-namespace eStudioLib
+namespace eLib
 {
 	public class ChipDefinition : PartDefinition
 	{

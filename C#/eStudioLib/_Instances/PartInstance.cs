@@ -1,8 +1,10 @@
-namespace eStudioLib
+using System.Xml;
+
+namespace eLib
 {
-	public class PartInstance 
+	public class PartInstance : XmlNode
 	{
-		public string InstanceName { get; set; }   // e.g., "R1", "C2"
+		public string Designator { get; set; }   // e.g., "R1", "C2"
 		public PartDefinition Definition { get; } // Points to the master definition
 
 		// Example instance-specific properties
@@ -10,9 +12,12 @@ namespace eStudioLib
 
 		public List<PinConnection> Connections { get; } = new List<PinConnection>();
 
-		public PartInstance(string instanceName, PartDefinition definition)
+		public override string XmlTag => "Part";
+
+		public PartInstance(string instanceName, PartDefinition definition, Circuit circuit = null)
+			: base(circuit)
 		{
-			this.InstanceName = instanceName;
+			this.Designator = instanceName;
 			this.Definition = definition;
 
 			// Initialize connections (nodes assigned later)
@@ -31,7 +36,23 @@ namespace eStudioLib
 		public override string ToString()
 		{
 			string conns = string.Join(", ", Connections.Select(c => c.ToString()));
-			return $"{InstanceName}: {Definition.Name} ({Definition.Symbol}) [Value={Value}] | {conns}";
+			return $"{Designator}: {Definition.Name} ({Definition.Symbol}) [Value={Value}] | {conns}";
+		}
+
+		public override void XmlWriteAttributes(XmlTextWriter writer)
+		{
+			// base.XmlWriteAttributes(writer);
+
+			writer.WriteAttributeString("Designator", this.Designator);
+			writer.WriteAttributeString("Part", this.Definition.Name);
+		}
+
+		public override void XmlWriteNodes(XmlTextWriter writer)
+		{
+			// base.XmlWriteNodes(writer);
+
+			foreach (var pin in Connections) 
+				pin.WriteXml(writer);
 		}
 	}
 }

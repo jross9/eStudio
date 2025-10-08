@@ -1,4 +1,4 @@
-﻿namespace eStudioLib
+﻿namespace eLib
 {
 	public class Chip6883Definition : ChipDefinition
 	{

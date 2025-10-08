@@ -1,30 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+
+using System.IO;
 using System.Xml;
 
 namespace eLib
 {
-	public class Circuit : XmlNode
+	public class Project : XmlNode
 	{
-		public string Name { get; set; }
-		public List<PartInstance> Instances { get; } = new List<PartInstance>();
+		public List<Circuit> Circuits { get; } = new List<Circuit>();
 
-		public override string XmlTag => "Circuit";
-
-		public Circuit(string name, XmlNode parent = null) 
+		public Project(XmlNode parent = null) 
 			: base(parent)
 		{
-			this.Name = name;
+
 		}
 
-		public void AddPart(PartInstance instance) 
+		public void AddCircuit(Circuit circuit) 
 		{
-			Instances.Add(instance);
+			this.Circuits.Add(circuit);
 		}
 
 		public void ReadXmlFile(string xmlPath = null) 
 		{
 			FileStream fs = new FileStream(xmlPath, FileMode.Open, FileAccess.Read);
-
+			
 			XmlTextReader reader = new XmlTextReader(fs);
 
 			while (reader.Read())
@@ -59,17 +62,6 @@ namespace eLib
 			this.WriteXml(writer);
 			writer.Close();
 			fs.Close();
-		}
-
-		public override void XmlWriteAttributes(XmlTextWriter writer)
-		{
-			writer.WriteAttributeString("Name", this.Name);	
-		}
-
-		public override void XmlWriteNodes(XmlTextWriter writer)
-		{
-			foreach(PartInstance part in this.Instances)
-				part.WriteXml(writer);
 		}
 	}
 }
