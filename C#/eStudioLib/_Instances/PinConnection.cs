@@ -24,6 +24,8 @@ namespace eLib
 
 			writer.WriteAttributeString("Number", this.Pin.Number.ToString());
 			writer.WriteAttributeString("Name", this.Pin.Name);
+			if (this.Pin.Type != PinType.UNDEF)
+				writer.WriteAttributeString("Type", this.Pin.Type.ToString());
 			writer.WriteAttributeString("NET", this.Node);
 		}
 	}

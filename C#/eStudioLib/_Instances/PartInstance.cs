@@ -23,7 +23,7 @@ namespace eLib
 			// Initialize connections (nodes assigned later)
 			foreach (var pin in definition.Pins)
 			{
-				Connections.Add(new PinConnection(pin, "UNCONNECTED"));
+				Connections.Add(new PinConnection(pin, "---"));
 			}
 		}
 
@@ -51,7 +51,7 @@ namespace eLib
 		{
 			// base.XmlWriteNodes(writer);
 
-			foreach (var pin in Connections) 
+			foreach (var pin in this.Connections) 
 				pin.WriteXml(writer);
 		}
 	}

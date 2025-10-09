@@ -32,17 +32,37 @@ namespace eLib
 			this.Parts.Add(part);
 			this.PartDict.Add("555", part);
 
-			part = new Chip7400Definition();
+			part = new TTL.TTL7400Definition();
 			this.Parts.Add(part);
 			this.PartDict.Add("7400", part);
 
-			part = new Chip6809Definition();
+			part = new TTL.TTL74138Definition();
+			this.Parts.Add(part);
+			this.PartDict.Add("74138", part);
+
+			part = new TTL.TTL74244Definition();
+			this.Parts.Add(part);
+			this.PartDict.Add("74244", part);
+
+			part = new TTL.TTL74273Definition();
+			this.Parts.Add(part);
+			this.PartDict.Add("74273", part);
+
+			part = new MC6809Definition();
 			this.Parts.Add(part);
 			this.PartDict.Add("6809", part);
 
-			part = new Chip6883Definition();
+			part = new MC6883Definition();
 			this.Parts.Add(part);
 			this.PartDict.Add("6883", part);
+
+			part = new MC6847Definition();
+			this.Parts.Add(part);
+			this.PartDict.Add("6847", part);
+
+			part = new ROM.MCM68A364Definition();
+			this.Parts.Add(part);
+			this.PartDict.Add("MCM68A364", part);
 		}
 	}
 }
