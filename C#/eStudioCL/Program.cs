@@ -21,6 +21,7 @@ namespace eStudioCL
 			Program.U6(circuit, library, "U6");
 			Program.U7(circuit, library, "U7");
 			Program.U8(circuit, library, "U8");
+			Program.U9(circuit, library, "U9");
 
 			// Display
 			foreach (var instance in circuit.Instances)
@@ -31,7 +32,7 @@ namespace eStudioCL
 	
 		static void U1(Circuit circuit, PartLibrary library, string designator) // 6809E 
 		{
-			MC6809Definition chip = (MC6809Definition)library.PartDict["6809"];
+			eLib.CPU.MC6809_Definition chip = (eLib.CPU.MC6809_Definition)library.PartDict["6809"];
 			Console.WriteLine("----------------------------------------");
 			chip.PrintChip();
 			Console.WriteLine("----------------------------------------");
@@ -83,7 +84,7 @@ namespace eStudioCL
 
 		static void U2(Circuit circuit, PartLibrary library, string designator) // 6883 
 		{
-			MC6883Definition chip = (MC6883Definition)library.PartDict["6883"];
+			eLib.CPU.MC6883_Definition chip = (eLib.CPU.MC6883_Definition)library.PartDict["6883"];
 			Console.WriteLine("----------------------------------------");
 			chip.PrintChip();
 			Console.WriteLine("----------------------------------------");
@@ -134,7 +135,7 @@ namespace eStudioCL
 
 		static void U3(Circuit circuit, PartLibrary library, string designator) // 6847 
 		{
-			MC6847Definition chip = (MC6847Definition)library.PartDict["6847"];
+			eLib.VDG.MC6847_Definition chip = (eLib.VDG.MC6847_Definition)library.PartDict["6847"];
 			Console.WriteLine("----------------------------------------");
 			chip.PrintChip();
 			Console.WriteLine("----------------------------------------");
@@ -210,15 +211,11 @@ namespace eStudioCL
 			u3.ConnectPin(17, "D7");
 			u3.ConnectPin(18, "A11");
 			u3.ConnectPin(19, "A10");
-
 			u3.ConnectPin(20, "ROM1En");
-
 			u3.ConnectPin(21, "A12");
 			u3.ConnectPin(22, "A9");
 			u3.ConnectPin(23, "A8");
 			u3.ConnectPin(24, "5V");
-
-
 		}
 
 		static void U5(Circuit circuit, PartLibrary library, string designator) // ROM2 
@@ -248,9 +245,7 @@ namespace eStudioCL
 			u4.ConnectPin(17, "D7");
 			u4.ConnectPin(18, "A11");
 			u4.ConnectPin(19, "A10");
-
 			u4.ConnectPin(20, "ROM2En");
-
 			u4.ConnectPin(21, "A12");
 			u4.ConnectPin(22, "A9");
 			u4.ConnectPin(23, "A8");
@@ -259,7 +254,7 @@ namespace eStudioCL
 
 		static void U6(Circuit circuit, PartLibrary library, string designator) // 74138 
 		{
-			eLib.TTL.TTL74138Definition chip = (eLib.TTL.TTL74138Definition)library.PartDict["74138"];
+			eLib.TTL.TTL_74138_Definition chip = (eLib.TTL.TTL_74138_Definition)library.PartDict["74138"];
 			Console.WriteLine("----------------------------------------");
 			chip.PrintChip();
 			Console.WriteLine("----------------------------------------");
@@ -286,7 +281,7 @@ namespace eStudioCL
 
 		static void U7(Circuit circuit, PartLibrary library, string designator) // 74273 
 		{
-			eLib.TTL.TTL74273Definition chip = (eLib.TTL.TTL74273Definition)library.PartDict["74273"];
+			eLib.TTL.TTL_74273_Definition chip = (eLib.TTL.TTL_74273_Definition)library.PartDict["74273"];
 			Console.WriteLine("----------------------------------------");
 			chip.PrintChip();
 			Console.WriteLine("----------------------------------------");
@@ -316,7 +311,7 @@ namespace eStudioCL
 
 		static void U8(Circuit circuit, PartLibrary library, string designator) // 74244 
 		{
-			eLib.TTL.TTL74244Definition chip = (eLib.TTL.TTL74244Definition)library.PartDict["74244"];
+			eLib.TTL.TTL_74244_Definition chip = (eLib.TTL.TTL_74244_Definition)library.PartDict["74244"];
 			Console.WriteLine("----------------------------------------");
 			chip.PrintChip();
 			Console.WriteLine("----------------------------------------");
@@ -342,6 +337,18 @@ namespace eStudioCL
 			u7.ConnectPin(18, "D3");
 			u7.ConnectPin(19, "MRDn");
 			u7.ConnectPin(20, "+5V");
+		}
+
+		static void U9(Circuit circuit, PartLibrary library, string designator) // 7402
+		{
+			eLib.TTL.TTL_7402_Definition chip = (eLib.TTL.TTL_7402_Definition)library.PartDict["7402"];
+			Console.WriteLine("----------------------------------------");
+			chip.PrintChip();
+			Console.WriteLine("----------------------------------------");
+			var u = new PartInstance(designator, chip);
+			circuit.AddPart(u);
+			u.ConnectPin(7, "GND");
+			u.ConnectPin(14, "+5V");
 		}
 	}
 }

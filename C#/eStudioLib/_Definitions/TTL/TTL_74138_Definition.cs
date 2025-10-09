@@ -1,8 +1,8 @@
 ﻿namespace eLib.TTL
 {
-	public class TTL74138Definition : ChipDefinition
+	public class TTL_74138_Definition : ChipDefinition
 	{
-		public TTL74138Definition()
+		public TTL_74138_Definition()
 			: base("74138", "U", null)
 		{
 			this.Pins.Add(new PinDefinition(1, "A", PinType.INPUT));

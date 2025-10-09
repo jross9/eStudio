@@ -28,35 +28,39 @@ namespace eLib
 			this.Parts.Add(part);
 			this.PartDict.Add("Transistor", part);
 
-			part = new ChipDefinition("555", "U", new List<string> { "VCC", "GND", "RESET", "OUT" });
-			this.Parts.Add(part);
-			this.PartDict.Add("555", part);
+			//part = new ChipDefinition("555", "U", new List<string> { "VCC", "GND", "RESET", "OUT" });
+			//this.Parts.Add(part);
+			//this.PartDict.Add("555", part);
 
-			part = new TTL.TTL7400Definition();
+			part = new TTL.TTL_7400_Definition();
 			this.Parts.Add(part);
 			this.PartDict.Add("7400", part);
 
-			part = new TTL.TTL74138Definition();
+			part = new TTL.TTL_7402_Definition();
+			this.Parts.Add(part);
+			this.PartDict.Add("7402", part);
+
+			part = new TTL.TTL_74138_Definition();
 			this.Parts.Add(part);
 			this.PartDict.Add("74138", part);
 
-			part = new TTL.TTL74244Definition();
+			part = new TTL.TTL_74244_Definition();
 			this.Parts.Add(part);
 			this.PartDict.Add("74244", part);
 
-			part = new TTL.TTL74273Definition();
+			part = new TTL.TTL_74273_Definition();
 			this.Parts.Add(part);
 			this.PartDict.Add("74273", part);
 
-			part = new MC6809Definition();
+			part = new CPU.MC6809_Definition();
 			this.Parts.Add(part);
 			this.PartDict.Add("6809", part);
 
-			part = new MC6883Definition();
+			part = new CPU.MC6883_Definition();
 			this.Parts.Add(part);
 			this.PartDict.Add("6883", part);
 
-			part = new MC6847Definition();
+			part = new VDG.MC6847_Definition();
 			this.Parts.Add(part);
 			this.PartDict.Add("6847", part);
 
